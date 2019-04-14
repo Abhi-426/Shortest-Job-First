@@ -18,12 +18,12 @@ int main()
 
 
 
- int i;
+ int i,flag=0;
  
 for(count=0;count<n;count++)
 {	
 int a;
-int min=100;
+int min=100,min2=100;
 for(i=0;i<n;i++){
 	if(time!=0){
 	if(rt[i]<=min && rt[i]!=0 && arrival_time[i]<=time){
@@ -36,6 +36,24 @@ else{
 		a=i;
 		min=arrival_time[i];
 	}
+}
+}
+if(time==0){
+
+for(i=0;i<n;i++){
+if (min==arrival_time[i])
+flag++;
+}
+}
+if(flag>1){
+for(i=0;i<n;i++){
+
+	if(arrival_time[i]<=min && rt[i]<=min2){
+		a=i;
+		min=arrival_time[i];
+		min2=rt[i];
+	}
+	flag=0;
 }
 }
 if(arrival_time[a]>time){
